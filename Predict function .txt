@@ -1,0 +1,29 @@
+def predict_flower_class(X, weights):
+    # Faire une prédiction en utilisant le modèle perceptron
+    prediction = predict(X, weights)
+    
+    # Retourner la classe prédite en utilisant la règle de décision suivante :
+    # si la prédiction est +1, la classe est "Iris-setosa"
+    # sinon, la classe est "Iris-versicolor"
+    return np.where(prediction == 1, "Iris-setosa", "Iris-versicolor")
+
+*****************************************************************************
+
+Pour utiliser cette fonction, vous devez d'abord avoir entraîné le
+ modèle perceptron sur des données d'entraînement et obtenu le vecteur 
+ de poids final. Vous pouvez alors passer ce vecteur de poids à la fonction
+ predict_flower_class ainsi que les caractéristiques de la fleur pour laquelle 
+ vous souhaitez faire une prédiction. La fonction retournera la classe prédite 
+ de la fleur sous forme de chaîne de caractères.
+
+Voici un exemple de code qui utilise cette fonction :
+
+
+*****************************************************************************
+# Entraîner le modèle perceptron sur les données d'entraînement
+weights = fit(X_train, y_train, learning_rate=0.1, n_iter=100)
+
+# Prédire la classe d'une fleur en utilisant les caractéristiques de cette fleur
+X_flower = np.array([5.1, 3.5, 1.4, 0.2]) # caractéristiques d'une Iris-setosa
+prediction = predict_flower_class(X_flower, weights)
+print(f"Prediction: {prediction}") # devrait afficher "Iris-setosa"

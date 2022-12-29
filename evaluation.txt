@@ -1,0 +1,24 @@
+evaluation
+
+Voici comment implémenter une fonction pour évaluer la performance du modèle perceptron entraîné :
+
+
+def evaluate(X, y, weights):
+    # Faire des prédictions en utilisant le modèle perceptron
+    predictions = predict(X, weights)
+    # Calculer l'accuracy en comparant les prédictions à y
+    accuracy = np.mean(predictions == y)
+    return accuracy
+
+
+
+
+Voici un exemple de code qui utilise cette fonction pour évaluer le modèle perceptron sur les données de test :
+
+
+# Entraîner le modèle perceptron sur les données d'entraînement
+weights = fit(X_train, y_train, learning_rate=0.1, n_iter=100)
+
+# Évaluer le modèle sur les données de test
+accuracy = evaluate(X_test, y_test, weights)
+print(f"Accuracy: {accuracy:.2f}")
